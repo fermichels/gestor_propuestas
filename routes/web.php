@@ -1,0 +1,52 @@
+<?php
+
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+
+
+
+
+Auth::routes();
+
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// ROOT ROUTES
+
+
+    Route::get('/user', [App\Http\Controllers\Auth\RegisterController::class, '__construct'])->name('user.register');
+    
+    Route::get('/editUser/{id}', [App\Http\Controllers\Auth\RegisterController::class, 'editar'])->name('editUser');
+    
+    //Route::get('editUser/{id}','Auth\RegisterController@editar')->name('editUser');
+    //Route::get('/edita/{id}', [
+	//	'uses' => 'TrabajoController@trabajos_index',
+	//	'as' => 'edita_trabajo'
+	//]);
+
+	//Route::get('/borra/{id}', [
+	//	'uses' => 'TrabajoController@borra_trabajo',
+	//	'as' => 'borra_trabajo'
+	//]);
+
+	//Route::post('/save', [
+	//	'uses' => 'TrabajoController@postGuardaTrabajo',
+	//	'as' => 'postGuardaTrabajo'
+	//]);
+
+	//Route::post('/edit', [
+	//	'uses' => 'TrabajoController@postEditaTrabajo',
+	//	'as' => 'postEditaTrabajo'
+	//]);
+
