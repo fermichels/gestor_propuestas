@@ -31,28 +31,46 @@ class LineasController extends Controller
     {
         $this->middleware('auth');
        // $this->middleware('isroot');
-       $lineas = Lineas::all();
-        return view('root.lineas', array('linea' => $lineas,'lineas' => $lineas) );
+        $lineas = Lineas::all();
+         return view('root.lineas', array('linea' => $lineas,'linea' => $lineas) );
+
+	
        
     }
     public function showRegistrationForm() {
         $lineas = (object)  array(
             'name' =>null, 'description' => null,
         );
-        $lineas = Lineas::all();
-        return view('root.lineas', array('linea' => $lineas,'lineas' => $lineas) );
+        $linea = Lineas::all();
+        return view('root.lineas', array('linea' => $linea,'lineas' => $lineas) );
     }
 
 
+ 
     public function editar($id)
     {
         $lineas =Lineas::find($id);
-        $lineas = Lineas::all();
-        return view('root.lineas', array('lineas' => $lineas,'lineas' => $lineas) );
+        $linea = Lineas::all();
+        return view('root.lineas', array('linea' => $linea,'lineas' => $lineas) );
+
+        
     }
+    public function postEditaLinea(Request $req)
+	{
+		$lineas = Lineas::find( $req['id'] );
+		
+		$data = [
+			'name'=> $req['name'],
+			'description'=> $req['description'],
+			
+		];
+		
+		$lineas->update($data);
+
+		return redirect()->route('lineas.index');
+	}
 
 
-    
     public function borra_lineas($id)
     {
     	Lineas::destroy($id);
@@ -71,6 +89,11 @@ class LineasController extends Controller
             'description' => ['required', 'string', 'max:255'],
         ]);
     }
+    public function update(Request $request, $id)
+{
+    Lineas::where('id', $id)->update($request->all());
+    return redirect()->route('lineas_index');
+}
 
     /**
      * Create a new user instance after a valid registration.
@@ -78,20 +101,6 @@ class LineasController extends Controller
      * @param  array  $data
      * @return \App\Models\lineas
      */
-    // public function create(array $data)
-    // {
-    //     return Lineas::updateOrCreate([
-    //         'id'=>$data['id']
-    //     ],[
-    //         'name' => $data['name'],
-    //         'description' => $data['description'], 
-    //     ]);
-    //     Lineas::create($data);
-
-    //     return redirect()->route('lineas_index');
-
-
-    //     }
         public function create(Request $req)
     {
     	//dd($req['autor_1']);
@@ -104,5 +113,6 @@ class LineasController extends Controller
 
         return redirect()->route('lineas_index');
     }
+    
 
 }

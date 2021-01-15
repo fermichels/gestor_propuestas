@@ -135,6 +135,7 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
+                                <th scope="col">ID</th>
                                 <th scope="col">Nombre</th>
                                 <th scope="col">Username</th>
                                 <th scope="col">Tipo</th>
@@ -145,6 +146,11 @@
                         <tbody style="color: grey">
                             @foreach ($users as $u)
                                 <tr>
+                                    <th scope="row">
+                                        <span class="d-inline-block text-truncate" style="max-width: 200px; min-width: 5;">
+                                            {{ $u->id }}
+                                        </span>
+                                    </th>
                                     <th scope="row">
                                         <span class="d-inline-block text-truncate" style="max-width: 200px; min-width: 5;">
                                             {{ $u->name }}
