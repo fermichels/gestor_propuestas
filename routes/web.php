@@ -27,7 +27,14 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 
     Route::get('/user', [App\Http\Controllers\Auth\RegisterController::class, '__construct'])->name('user.register');
     
-    Route::get('/editUser/{id}', [App\Http\Controllers\Auth\RegisterController::class, 'editar'])->name('editUser');
+	Route::get('/editUser/{id}', [App\Http\Controllers\Auth\RegisterController::class, 'editar'])->name('editUser');
+	
+	Route::get('/editLineas/{id}', [App\Http\Controllers\LineasController::class, 'editar'])->name('editLineas');
+	Route::get('/deletLineas/{id}', [App\Http\Controllers\LineasController::class, 'borra_lineas'])->name('deletLineas');
+	Route::get('/lineas', [App\Http\Controllers\LineasController::class, 'lineas_index'])->name('lineas_index');
+
+	Route::post('/lineas', [App\Http\Controllers\LineasController::class, 'create'])->name('lineas');
+	
     
     //Route::get('editUser/{id}','Auth\RegisterController@editar')->name('editUser');
     //Route::get('/edita/{id}', [

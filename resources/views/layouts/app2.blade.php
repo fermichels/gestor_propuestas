@@ -76,6 +76,10 @@
                             Área Personal
                         </a>
                         <div class="sb-sidenav-menu-heading">Trabajos</div>
+                        <a class="nav-link" href="/lineas">
+                            <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
+                            Líneas de Investigación
+                        </a>
                         <a class="nav-link" href="/temas">
                             <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
                             Prupuestas de Temas
