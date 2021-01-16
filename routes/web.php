@@ -30,13 +30,15 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 	Route::get('/editUser/{id}', [App\Http\Controllers\Auth\RegisterController::class, 'editar'])->name('editUser');
 	
 	Route::get('/editLineas/{id}', [App\Http\Controllers\LineasController::class, 'editar'])->name('editLineas');
-	Route::get('/editLineas/{id}/edit', [App\Http\Controllers\LineasController::class, 'update'])->name('lineas.edit');
 	Route::get('/deletLineas/{id}', [App\Http\Controllers\LineasController::class, 'borra_lineas'])->name('deletLineas');
 	Route::get('/lineas', [App\Http\Controllers\LineasController::class, 'lineas_index'])->name('lineas.index');
 
-	Route::post('/lineas', [App\Http\Controllers\LineasController::class, 'create'])->name('lineas');
-	Route::post('/lineas', [App\Http\Controllers\LineasController::class, 'postEditaLinea'])->name('lineas');
-    
+	//Route::post('/lineas', [App\Http\Controllers\LineasController::class, 'postGuardaLinea'])->name('lineas');
+	Route::post('/lineas', [App\Http\Controllers\LineasController::class, 'postUpdateOrCreateLinea'])->name('lineas');
+	
+	
+
+
     //Route::get('editUser/{id}','Auth\RegisterController@editar')->name('editUser');
     //Route::get('/edita/{id}', [
 	//	'uses' => 'TrabajoController@trabajos_index',
@@ -57,4 +59,3 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 	//	'uses' => 'TrabajoController@postEditaTrabajo',
 	//	'as' => 'postEditaTrabajo'
 	//]);
-

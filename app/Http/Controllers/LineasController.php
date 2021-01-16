@@ -55,7 +55,9 @@ class LineasController extends Controller
 
         
     }
-    public function postEditaLinea(Request $req)
+  
+  
+    protected function postUpdateOrCreateLinea(Request $req)
 	{
 		$lineas = Lineas::find( $req['id'] );
 		
@@ -64,17 +66,19 @@ class LineasController extends Controller
 			'description'=> $req['description'],
 			
 		];
-		
-		$lineas->update($data);
-
+		if($req['id']==null){
+            Lineas::create($data);
+        }else{
+            $lineas->update($data);
+        }
+    
 		return redirect()->route('lineas.index');
-	}
-
+    }
 
     public function borra_lineas($id)
     {
     	Lineas::destroy($id);
-        return redirect()->route('lineas_index');
+        return redirect()->route('lineas.index');
     }
     /**
      * Get a validator for an incoming registration request.
@@ -92,7 +96,7 @@ class LineasController extends Controller
     public function update(Request $request, $id)
 {
     Lineas::where('id', $id)->update($request->all());
-    return redirect()->route('lineas_index');
+    return redirect()->route('lineas.index');
 }
 
     /**
@@ -101,18 +105,18 @@ class LineasController extends Controller
      * @param  array  $data
      * @return \App\Models\lineas
      */
-        public function create(Request $req)
-    {
-    	//dd($req['autor_1']);
-        $data = [
-            'name'=> $req['name'],
-            'description'=> $req['description'],
+    //     public function create(Request $req)
+    // {
+    // 	//dd($req['autor_1']);
+    //     $data = [
+    //         'name'=> $req['name'],
+    //         'description'=> $req['description'],
             
-        ];
-        Lineas::create($data);
+    //     ];
+    //     Lineas::create($data);
 
-        return redirect()->route('lineas_index');
-    }
+    //     return redirect()->route('lineas.index');
+    // }
     
 
 }
