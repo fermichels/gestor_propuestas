@@ -80,7 +80,7 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
                             Líneas de Investigación
                         </a>
-                        <a class="nav-link" href="/temas">
+                        <a class="nav-link" href="/propuestas">
                             <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
                             Prupuestas de Temas
                         </a>

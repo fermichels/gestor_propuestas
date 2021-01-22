@@ -7,16 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class propuestas extends Model
 {
-    protected $table = ['titulo', 'descripcion', 'estado', 'linea_id', 'posted_by', 'created_at'];
+    protected $fillable = ['titulo', 'descripcion', 'estado', 'linea_id', 'user_id'];
+ 
 
-
-    public function posted_by()
+    public function user()
     {
-        return $this->hasOne(User::class, 'name', 'id');
+        return $this->belongsTo(User::class);
     }
-    public function linea_id()
+    public function linea()
     {
-        return $this->hasOne(Lineas::class, 'name', 'id');
+        return $this->belongsTo(Lineas::class);
     }
 
    

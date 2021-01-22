@@ -18,13 +18,24 @@ class CreatePropuestasTable extends Migration
             $table->bigIncrements('id');
             $table->string('titulo')->unique();
             $table->string('descripcion');
-            $table->boolean('estado', array('ACT', 'ASIG'));
-            $table->string('linea_id');
-            $table->string('posted_by');
-            $table->dateTime('created_at');
-        });
+            $table->enum('estado', array('ACT', 'ASG'));
+            $table->unsignedBigInteger('linea_id');
+            $table->unsignedBigInteger('user_id');
+            $table->timestamps();
 
-       
+            $table->foreign('linea_id')->references('id')->on('lineas');
+            $table->foreign('user_id')->references('id')->on('users');
+    
+        });
+      
+      $propuesta = new Propuestas;
+      $propuesta->titulo = 'titulotest';
+      $propuesta->descripcion = 'root@mail.com';
+      $propuesta->estado = 'ACT';
+      $propuesta->linea_id = '1';
+      $propuesta->user_id = '1';
+      $propuesta->save();
+
  
     }
 

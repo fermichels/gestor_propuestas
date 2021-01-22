@@ -37,7 +37,7 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 	Route::post('/lineas', [App\Http\Controllers\LineasController::class, 'postUpdateOrCreateLinea'])->name('lineas');
 	
 	
-
+	Route::get('/propuestas', [App\Http\Controllers\PropuestasController::class, 'propuestas_index'])->name('propuestas');
 
     //Route::get('editUser/{id}','Auth\RegisterController@editar')->name('editUser');
     //Route::get('/edita/{id}', [
