@@ -31,10 +31,10 @@ class HomeController extends Controller
                 return view('root/areapersonal');
                 break;
             case 'ALUM':
-                return (new RegisterController)->__construct();
+                return view('alum/areapersonal');
                 break;
             case 'TUTO':
-                return view('layoutareapersonal/areapersonal');
+                return view('tutor/areapersonal');
                 break;
             default:
                 return view('home');

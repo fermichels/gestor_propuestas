@@ -4580,7 +4580,7 @@ color:#912a2a ;
   border-bottom-left-radius: calc(0.25rem - 1px);
 }
 .card > .card-header + .list-group,
-.card > .list-group + .card-footer {
+.card > .list-group + .card-footer{
   border-top: 0;
 }
 
@@ -4613,6 +4613,11 @@ color:#912a2a ;
 .card-link + .card-link {
   margin-left: 1.25rem;
 }
+.right{
+  margin-left: -0.625rem;
+ position: relative;
+}
+
 
 .card-header {
   padding: 0.75rem 1.25rem;
@@ -4628,11 +4633,13 @@ color:#912a2a ;
   padding: 0.75rem 1.25rem;
   background-color: rgba(0, 0, 0, 0.03);
   border-top: 1px solid rgba(0, 0, 0, 0.125);
-
 }
+
+
 .card-footer:last-child {
   border-radius: 0 0 calc(0.25rem - 1px) calc(0.25rem - 1px);
 }
+
 
 .card-header-tabs {
   margin-right: -0.625rem;
@@ -4718,7 +4725,7 @@ color:#912a2a ;
     border-top-right-radius: 0;
   }
   .card-group > .card:not(:last-child) .card-img-bottom,
-.card-group > .card:not(:last-child) .card-footer {
+.card-group > .card:not(:last-child) .card-footer{
     border-bottom-right-radius: 0;
   }
   .card-group > .card:not(:first-child) {
@@ -4730,7 +4737,7 @@ color:#912a2a ;
     border-top-left-radius: 0;
   }
   .card-group > .card:not(:first-child) .card-img-bottom,
-.card-group > .card:not(:first-child) .card-footer {
+.card-group > .card:not(:first-child) .card-footer{
     border-bottom-left-radius: 0;
   }
 }

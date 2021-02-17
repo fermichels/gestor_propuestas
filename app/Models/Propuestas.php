@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -19,5 +20,22 @@ class propuestas extends Model
         return $this->belongsTo(Lineas::class);
     }
 
-   
+     /**
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @param  int                                    $id
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeByUser(Builder $query, int $id)
+    {
+        return $query->whereHas('user', function ($user) use ($id) {
+            $user->where('id', $id);
+        });
+    }
+    public function scopeById(Builder $query, int $id)
+    {
+        return $query->whereHas('lineas', function ($lineas) use ($id) {
+            $lineas->where('id', $id);
+        });
+    }
+    
 }

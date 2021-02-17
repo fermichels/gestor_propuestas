@@ -4583,9 +4583,11 @@ color:#912a2a ;
   border-bottom-left-radius: calc(0.25rem - 1px);
 }
 .card > .card-header + .list-group,
-.card > .list-group + .card-footer {
+.card > .list-group + .card-footer,
+.card > .list-group + .footer-post {
   border-top: 0;
 }
+
 
 .card-body {
   flex: 1 1 auto;
@@ -4632,6 +4634,24 @@ color:#912a2a ;
   background-color: rgba(0, 0, 0, 0.03);
   border-top: 1px solid rgba(0, 0, 0, 0.125);
 }
+.footer-post {
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+  background-color: rgba(0, 0, 0, 0.03);
+  padding: 0.75rem 1.25rem;
+  max-width: auto;
+  text-align: left;
+ margin: 10px
+}
+.right-post{
+float: right;
+}
+.left-post{
+float: left;
+}
+
+ 
+
+
 .card-footer:last-child {
   border-radius: 0 0 calc(0.25rem - 1px) calc(0.25rem - 1px);
 }

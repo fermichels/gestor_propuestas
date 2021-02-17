@@ -1,10 +1,33 @@
-@extends('layouts.app2')
+@extends('layouts.tuto')
+@php
+    //dd($propuestas);
+@endphp
 @section('content')
     <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/propuestas" ><i class="far fa-bell"></i> Crear/Modificar Propuesta <span class="sr-only">(current)</span></a>
+                  </li>
+                  
+                <li class="nav-item active">
+                    <a class="nav-link" href="/verpropuestas" ><i class="fas fa-home"></i> Propuestas <span class="sr-only">(current)</span></a>
+                  </li>
+                
+                
+              </ul>
+            </div>
+          </nav>
         <div class="row justify-content">
             <div class="container-fluid">
                 <div class="card">
-                    <div class="card-header">{{ __('Modificar propuestas') }}</div>
+                    
+                    <div class="card-header">{{ __('Propuestas') }}</div>
 
                     <div class="card-body col-md-11">
                         <form method="POST" action="{{ route('propuestas') }}">
@@ -29,6 +52,7 @@
                                 </div>
 
                             </div>
+                            
                             <div class=" form-group row">
                                 <label for="descripcion"
                                     class="col-md-4 col-form-label text-md-right">{{ __('Descripción') }}</label>
@@ -81,9 +105,9 @@
 
                         </form>
 
-
+                        
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Propuestas de tema</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Mis Propuestas</h6>
                         </div>
                         <div class="container-fluid">
                             <div class="card-body">
@@ -95,7 +119,6 @@
                                             </tr>
                                         </thead>
                                         <tbody style="color: grey">
-
                                             @foreach ($propuestas as $p)
                                                 <tr>
                                                     <th scope="row">
@@ -115,8 +138,7 @@
                                                             <div class="footer-post">
                                                                 Categoria:
                                                                 <a href="#">{{ $p->linea->name }}</a>
-                                                                Posted on {{ $p->created_at->format('d/m/Y') }} Por:
-                                                                {{ $p->user->name }}
+                                                                Posted on {{ $p->created_at->format('d/m/Y') }}
                                                                 
                                                                     <a class="right-post">{{ $p->estado }} </a>
                                                              
@@ -125,8 +147,7 @@
                                                             
                                                             
                                                         </div>
-                                                </tr>
-                                                </th>
+                                              
                                             @endforeach
                                         </tbody>
                                     </table>

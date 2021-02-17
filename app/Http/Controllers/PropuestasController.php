@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Propuestas;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Laravel\Ui\Presets\React;
 
 class PropuestasController extends Controller
 {
@@ -15,10 +16,58 @@ class PropuestasController extends Controller
     {
         $this->middleware('auth');
        // $this->middleware('isroot');
+       
+
+       $propuestas = Propuestas::byUser(Auth::id())->get();
+        
+        $lineas = lineas::all();
+        return view('tutor.propuestastutor', array('propuestas' => $propuestas, 'lineas' => $lineas ) );
+
+	
+       
+    }
+    public function ver_por_lineas($id)
+    {
+        $this->middleware('auth');
+        
+         $user = User::all();
+        
+         $lineas = lineas::find($id);
+         $propuestas = Propuestas::all();
+          return view('alum.propuestasalum', array('propuestas' => $propuestas,'user' => $user, 'lineas' => $lineas ) );
+      
+	
+       
+    }
+    
+
+    public function lineas_index()
+    {
+        $this->middleware('auth');
+       // $this->middleware('isroot');
+       
+
+       $propuestas = Propuestas::all();
+        
+        $lineas = lineas::all();
+        return view('alum.lineasalum', array('propuestas' => $propuestas,'lineas' => $lineas) );
+
+	
+       
+    }
+
+
+
+
+
+    public function ver_propuestas()
+    {
+        $this->middleware('auth');
+       // $this->middleware('isroot');
         $propuestas = Propuestas::all();
         $user = User::all();
         $lineas = lineas::all();
-         return view('root.propuestas', array('propuestas' => $propuestas,'user' => $user, 'lineas' => $lineas ) );
+         return view('tutor.verpropuestas', array('propuestas' => $propuestas,'user' => $user, 'lineas' => $lineas ) );
 
 	
        
@@ -43,7 +92,7 @@ class PropuestasController extends Controller
             $propuestas->update($data);
         }
     
-		return redirect()->route('propuestas');
+		return redirect()->back();
     }
 
     public function editar($id)
@@ -52,7 +101,7 @@ class PropuestasController extends Controller
         $propuestas = Propuestas::all();
         $user = User::all();
         $lineas = lineas::all();
-         return view('root.propuestas', array('propuesta' => $propuesta,'propuestas'
+         return view('tutor.propuestastutor', array('propuesta' => $propuesta,'propuestas'
           => $propuestas,'user' => $user, 'lineas' => $lineas ) );
      
 
@@ -76,7 +125,7 @@ if($propuestas){
     $propuestas = Propuestas::all();
     
 }
-return view('root.propuestas');
+return view('tutor.propuestastutor');
 }
 
 
