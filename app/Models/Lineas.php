@@ -11,4 +11,9 @@ class lineas extends Model
 
 
     public $timestamps = false;
+
+    public function propuestas()
+    {
+        return $this->hasMany(Propuestas::class, 'linea_id');
+    }
 }

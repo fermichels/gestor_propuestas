@@ -31,11 +31,6 @@ class propuestas extends Model
             $user->where('id', $id);
         });
     }
-    public function scopeById(Builder $query, int $id)
-    {
-        return $query->whereHas('lineas', function ($lineas) use ($id) {
-            $lineas->where('id', $id);
-        });
-    }
+    
     
 }

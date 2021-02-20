@@ -29,16 +29,17 @@ class PropuestasController extends Controller
     public function ver_por_lineas($id)
     {
         $this->middleware('auth');
-        
-         $user = User::all();
-        
-         $lineas = lineas::find($id);
-         $propuestas = Propuestas::all();
-          return view('alum.propuestasalum', array('propuestas' => $propuestas,'user' => $user, 'lineas' => $lineas ) );
       
-	
+         $user = User::all();
        
+        $lineas = Lineas::find($id);
+		$propuestas = $lineas->propuestas;
+       
+        
+          return view('alum.propuestasalum', array('propuestas' => $propuestas,'user' => $user, 'lineas' => $lineas ) );
+         
     }
+
     
 
     public function lineas_index()
@@ -72,6 +73,10 @@ class PropuestasController extends Controller
 	
        
     }
+
+
+
+    
     protected function postUpdateOrCreatePropuesta(Request $req)
 	{
         $propuestas = Propuestas::find( $req['id'] );

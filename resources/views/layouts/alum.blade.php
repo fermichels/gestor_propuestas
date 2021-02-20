@@ -76,7 +76,10 @@
                             Área Personal
                         </a>
                         <div class="sb-sidenav-menu-heading">Trabajos</div>
-                       
+                        <a class="nav-link" href="/alum/lineasalum">
+                            <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
+                            Mi Tema
+                        </a>
                         <a class="nav-link" href="/alum/lineasalum">
                             <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
                             Prupuestas de Temas

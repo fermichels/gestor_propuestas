@@ -2597,6 +2597,14 @@ img{ max-width:100%;}
   font-size: 13px;
   background-color: #007bff;
   border-color: #007bff;
+  
+}
+.btn-primary-1 {
+  color: #fff;
+  font-size: 13px;
+  background-color: #007bff;
+  border-color: #007bff;
+  line-height: 20%;
 }
 .btn-primary:hover {
   color: #fff;

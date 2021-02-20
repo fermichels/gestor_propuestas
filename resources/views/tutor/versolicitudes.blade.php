@@ -1,4 +1,4 @@
-@extends('layouts.alum')
+@extends('layouts.tuto')
 @section('content')
     <div class="container-fluid">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -10,7 +10,7 @@
         </nav>
         <div>
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Propuestas de tema</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Solicitudes Recibidas</h6>
             </div>
             <div class="container-fluid">
                 <div class="card-body">
@@ -23,31 +23,30 @@
                             </thead>
                             <tbody style="color: grey">
 
-                                @foreach ($propuestas as $p)
+                                @foreach ($solicitud as $s)
 
                                     <tr>
                                         <th scope="row">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h2 class="card-title">{{ $p->titulo }}</h2>
-                                                    <p class="card-text">{{ $p->descripcion }}</p>
+                                                    <h2 class="card-title">{{ $s->propuesta->titulo }}</h2>
+                                                    <p class="card-text">{{ $s->descripcion }}</p>
 
 
                                                 </div>
                                                 <div class="footer-post">
                                                     Categoria:
-                                                    <a href="#">{{ $p->linea->name }}</a>
-                                                    Posted on {{ $p->created_at->format('d/m/Y') }} Por:
-                                                    {{ $p->user->name }}
-
+                                                    Posted on {{ $s->propuesta->created_at->format('d/m/Y') }} Por:
+                                                    {{ $s->propuesta->user->name }}
+                                                     Solicitado por: {{ $s->user->name }}
 
                                                    
-                                                    <a href="{{ route('solicitarTema', $p->id) }}" class="btn btn-primary right-post"
+                                                    {{-- <a href="{{ route('solicitarTema', $p->id) }}" class="btn btn-primary right-post"
                                                         style="font-size: 18px;">Solicitar
                                                         <i class="far fa-edit"></i>
-                                                    </a>
+                                                    </a> --}}
 
-                                                    <a class="right-post">&ensp;{{ $p->estado }} &ensp;</a>
+                                                    <a class="right-post">&ensp;{{ $s->propuesta->estado }} &ensp;</a>
 
 
                                                 </div>

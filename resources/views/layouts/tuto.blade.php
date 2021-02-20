@@ -81,6 +81,10 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
                             Prupuestas de Temas
                         </a>
+                        <a class="nav-link" href="/versolicitudes">
+                            <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
+                            Solicitudes
+                        </a>
                         <div class="sb-sidenav-menu-heading">Opciones</div>
                         
                         <a class="nav-link" href="/config">

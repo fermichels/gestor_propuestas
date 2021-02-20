@@ -2597,6 +2597,8 @@ img{ max-width:100%;}
   font-size: 13px;
   background-color: #007bff;
   border-color: #007bff;
+  line-height: normal;
+  line-break: auto;
 }
 .btn-primary:hover {
   color: #fff;
