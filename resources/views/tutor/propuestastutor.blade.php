@@ -29,8 +29,8 @@
                     
                     <div class="card-header">{{ __('Propuestas') }}</div>
 
-                    <div class="card-body col-md-11">
-                        <form method="POST" action="{{ route('propuestas') }}">
+                    <div class="card-body">
+                        <form class="card-body" method="POST" action="{{ route('propuestas') }}">
                             @csrf
 
                             <input type="hidden" name="id" id="id" value="{{ isset($propuesta->id) ? $propuesta->id : '' }}">
@@ -124,7 +124,7 @@
                                                     <th scope="row">
                                                         <div class="card">
                                                             <div class="card-body">
-                                                                <h2 class="card-title">{{ $p->titulo }}</h2>
+                                                                <h2 class="card-title ">{{ $p->titulo }}</h2>
                                                                 <p class="card-text">{{ $p->descripcion }}</p>
                                                                 <a href="{{ route('editPropuesta', $p->id) }}" class="btn btn-sm btn-warning"
                                                                     style="width: 35px; font-size: 18px;">
@@ -144,7 +144,6 @@
                                                              
                                                                 
                                                             </div>
-                                                            
                                                             
                                                         </div>
                                               

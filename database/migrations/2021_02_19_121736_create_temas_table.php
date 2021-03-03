@@ -17,6 +17,7 @@ class CreateTemasTable extends Migration
             $table->bigIncrements('id');
             $table->timestamps();
             $table->unsignedBigInteger('propuesta_id');
+            $table->unsignedBigInteger('alum_id')->unique();
             
             $table->foreign('propuesta_id')->references('id')->on('propuestas');
 

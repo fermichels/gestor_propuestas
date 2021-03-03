@@ -4593,14 +4593,16 @@ color:#912a2a ;
 
 .card-body {
   flex: 1 1 auto;
-  margin-right: auto;
-  margin-left: auto;
-  min-height: 1px;
+  margin-left: 10px;
+  min-height: 10px;
   padding: 1.25rem;
 }
 
 .card-title {
   font-size: 22px;
+  margin-right: auto;
+  color: #000;
+  margin-left: auto;
   margin-bottom: 0.75rem;
 
 }

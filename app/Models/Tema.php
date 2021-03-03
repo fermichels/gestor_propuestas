@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tema extends Model
 {
-    protected $fillable = ['propuesta_id'];
+    protected $fillable = ['propuesta_id','alum_id'];
 
 
     public function propuesta()
