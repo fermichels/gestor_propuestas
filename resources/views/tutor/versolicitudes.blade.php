@@ -1,5 +1,6 @@
 @extends('layouts.tuto')
 @section('content')
+
     <div class="container-fluid">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -10,7 +11,7 @@
         </nav>
         <div>
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Solicitudes Recibidas</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Solicitudes Recibidas </h6>
             </div>
             <div class="container-fluid">
                 <div class="card-body">

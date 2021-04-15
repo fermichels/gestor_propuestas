@@ -20,7 +20,7 @@ class SolicitudController extends Controller
     {
         $this->middleware('auth');
         // $this->middleware('isroot');
-
+ // $this->middleware('isroot');
 
         $solicitud = Solicitud::all();
 

@@ -19,7 +19,7 @@
       <label for="exampleFormControlTextarea1">Mensaje</label>
       <textarea class="form-control" id="exampleFormControlTextarea1" rows="6"></textarea>
     </div>
-    <a href="/temas" class="btn btn-primarya">Solicitar  <i class="fas fa-share"></i></a>
+    <a href="/temas" class="btn btn-primarya">Solicitar   <i class="fas fa-share"></i></a>
     <a href="/temas" class="btn btn-primaryr">Cancelar  <i class="far fa-window-close"></i></a>
   </form>
 

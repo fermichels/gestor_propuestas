@@ -16,7 +16,7 @@ class PropuestasController extends Controller
     {
         $this->middleware('auth');
        // $this->middleware('isroot');
-       
+       // $this->middleware('isroot');
 
        $propuestas = Propuestas::byUser(Auth::id())->get();
         
