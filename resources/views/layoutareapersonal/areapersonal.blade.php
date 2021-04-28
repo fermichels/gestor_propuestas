@@ -1,6 +1,6 @@
 @extends('master.layout')
 @section('content')
-
+<!-- Content Row * -->
         <div class="container-fluid">
             <h1 class="mt-4">Área Personal</h1>
             <ol class="breadcrumb mb-4">
