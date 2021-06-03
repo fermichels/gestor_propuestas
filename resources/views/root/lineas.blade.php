@@ -7,7 +7,7 @@
                     <div class="card">
                         <div class="card-header"> {{ isset($lineas->id) ? 'Actualizar Línea de Investigacion' : 'Registrar  Línea de Investigacion' }}</div>
 
-                        <div class="card-body">
+                        <div class="card-body ">
                             <form method="POST" action="{{ route('lineas') }}">
                                 @csrf
 
@@ -15,7 +15,7 @@
                                 <div class="form-group row">
                                     <label for="name" class="col">{{ __('Nombre') }}</label>
 
-                                    <div class="col-md-6">
+                                    <div class="col-md-10 mb-10">
                                         <input id="name" type="text"
                                             class="form-control @error('name') is-invalid @enderror" name="name" required 
                                             autocomplete="name" autofocus
@@ -34,7 +34,7 @@
                                 <div class="form-group row">
                                     <label for="description" class="col  ">{{ 'Descripción' }}</label>
 
-                                    <div class="">
+                                    <div class="col-md-10">
                                         <textarea id="description" type="text"
                                             class="form-control @error('description') is-invalid @enderror"
                                             name="description" autocomplete="description"
