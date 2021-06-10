@@ -7,11 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tema extends Model
 {
-    protected $fillable = ['propuesta_id','alum_id'];
+    protected $fillable = ['propuesta_id','user_id'];
 
 
     public function propuesta()
     {
         return $this->belongsTo(Propuestas::class);
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

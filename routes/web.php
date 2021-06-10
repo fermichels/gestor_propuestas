@@ -46,6 +46,8 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 	Route::get('/solicitartema/{id}', [App\Http\Controllers\SolicitudController::class, 'solicitar_index'])->name('solicitarTema');
 	Route::post('/solicitartema', [App\Http\Controllers\SolicitudController::class, 'postUpdateOrCreateSolicitud'])->name('solicitartema');
 	Route::get('/versolicitudes', [App\Http\Controllers\SolicitudController::class, 'solicitudes'])->name('versolicitudes');
+	Route::get('/asignartema/{id}', [App\Http\Controllers\TemaController::class, 'asignar_index'])->name('asignarTema');
+	Route::post('/asignartema', [App\Http\Controllers\TemaController::class, 'postUpdateOrCreateAsignacion'])->name('asignartema');
     //Route::get('editUser/{id}','Auth\RegisterController@editar')->name('editUser');
     //Route::get('/edita/{id}', [
 	//	'uses' => 'TrabajoController@trabajos_index',

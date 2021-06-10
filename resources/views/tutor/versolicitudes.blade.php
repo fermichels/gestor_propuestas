@@ -41,10 +41,13 @@
                                                     {{ $s->propuesta->user->name }}
                                                      Solicitado por: {{ $s->user->name }}
 
-                                                    <a href="" class="btn btn-primary right-post"
+                                                 
+
+                                                    <a href="{{ route('asignarTema', $s->id, ) }}" class="btn btn-primary right-post"
                                                         style="font-size: 18px;">Asignar Tema
                                                         <i class="far fa-edit"></i>
                                                     </a>
+                                                   
                                                    
 
                                                     <a class="right-post">&ensp;{{ $s->propuesta->estado }} &ensp;</a>

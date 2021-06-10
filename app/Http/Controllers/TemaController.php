@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Tema;
+use App\Models\Propuestas;
+use App\Models\User;
+use App\Models\Solicitud;
 use Illuminate\Http\Request;
 
 class TemaController extends Controller
@@ -12,9 +15,14 @@ class TemaController extends Controller
      **
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function asignar_index($id)
     {
-        //
+        $tema = Tema::all();
+
+        $propuestas = Propuestas::all();
+        $user = User::all();
+        $solicitud = Solicitud::find($id);
+        return view('tutor.asignartema', array('propuestas' => $propuestas, 'tema' => $tema, 'user' => $user, 'solicitud' => $solicitud));
     }
 
     /**
@@ -22,11 +30,22 @@ class TemaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
+    public function postUpdateOrCreateAsignacion(Request $req)
+	{
+        $tema = Tema::find( $req['id'] );
+        
+        $data = [
+            'propuesta_id'=> $req['propuesta_id'],
+            'user_id'=> $req['user_id'],
+			
+		];
+        
+            Tema::create($data);
+    
+		return redirect()->back();
+    
     }
-
+   
     /**
      * Store a newly created resource in storage.
      *
