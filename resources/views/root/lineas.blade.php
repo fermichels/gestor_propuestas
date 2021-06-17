@@ -71,7 +71,7 @@
         </div>
         <div class="container-fluid">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Lineas de Investigación</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Lineas de Investigación </h6>
             </div>
             <div class="card-body">
                 <div class="table-responsive">

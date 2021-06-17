@@ -15,7 +15,7 @@ class PropuestasController extends Controller
     public function propuestas_index()
     {
         $this->middleware('auth');
-       // $this->middleware('isroot');
+       //; $this->middleware('isroot');
        
 
        $propuestas = Propuestas::byUser(Auth::id())->get();

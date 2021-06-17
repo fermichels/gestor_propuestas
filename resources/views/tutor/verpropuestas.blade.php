@@ -16,7 +16,7 @@
 
                     <li class="nav-item active">
                         <a class="nav-link" href="/verpropuestas"><i class="fas fa-home"></i> Propuestas <span
-                                class="sr-only">(current)</span></a>
+                                class="sr-only"></span></a>
                     </li>
 
 

@@ -1,7 +1,7 @@
 @extends('layouts.alum')
 @section('content')
     <main>
-        <!-- Content Row * -->
+        <!-- Content  * -->
         <div class="container-fluid">
 
 

@@ -24,7 +24,7 @@ class LineasController extends Controller
 
     /**
      * Create a new controller instance.
-     *
+     
      * @return void
      */
     public function lineas_index()

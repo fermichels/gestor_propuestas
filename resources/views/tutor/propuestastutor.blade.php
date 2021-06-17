@@ -10,11 +10,11 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/propuestas" ><i class="far fa-bell"></i> Crear/Modificar Propuesta <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/propuestas" ><i class="far fa-bell"></i> Crear/Modificar Propuesta<span class="sr-only">(current)</span></a>
                   </li>
                   
                 <li class="nav-item active">
-                    <a class="nav-link" href="/verpropuestas" ><i class="fas fa-home"></i> Propuestas <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/verpropuestas" ><i class="fas fa-home"></i> Propuestas<span class="sr-only">(current)</span></a>
                   </li>
                 
                 

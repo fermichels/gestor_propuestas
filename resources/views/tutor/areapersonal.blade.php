@@ -16,7 +16,7 @@
 
     </nav>
     <main>
-        <!-- Content Row -->
+        <!-- Content -->
         <div class="navbar navbar-expand-lg navbar-light bg-light">
 
             <!-- Earnings (Monthly) Card Example -->
