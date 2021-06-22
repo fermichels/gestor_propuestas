@@ -13,7 +13,13 @@ class MiTema extends Controller
      */
     public function index()
     {
-        //
+        $this->middleware('auth');
+        //; $this->middleware('isroot');
+        $solicitud = Solicitud::find($id);
+        $propuestas = Propuestas::all();
+       
+         
+        return view('alum.tema', array('propuestas' => $propuestas, 'tema' => $tema, 'user' => $user));
     }
 
     /**

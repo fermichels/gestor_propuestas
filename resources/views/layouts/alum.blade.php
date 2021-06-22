@@ -76,7 +76,7 @@
                             Área Personal
                         </a>
                         <div class="sb-sidenav-menu-heading">Trabajos</div>
-                        <a class="nav-link" href="/alum/lineasalum">
+                        <a class="nav-link" href="{{ route('tema', Auth::user()->id ) }}">
                             <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
                             Mi Tema
                         </a>

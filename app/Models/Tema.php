@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Tema extends Model
 {
@@ -17,5 +19,13 @@ class Tema extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+
+    public function scopeByUser(Builder $query, int $id)
+    {
+        return $query->whereHas('user', function ($user) use ($id) {
+            $user->where('id', $id);
+        });
     }
 }

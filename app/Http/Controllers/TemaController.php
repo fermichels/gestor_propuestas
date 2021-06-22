@@ -7,6 +7,8 @@ use App\Models\Propuestas;
 use App\Models\User;
 use App\Models\Solicitud;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Laravel\Ui\Presets\React;
 
 class TemaController extends Controller
 {
@@ -15,6 +17,34 @@ class TemaController extends Controller
      **
      * @return \Illuminate\Http\Response
      */
+
+    public function tema_indexx()
+    {
+        $tema = Tema::byUser(Auth::id())->get();
+
+        $propuestas = Propuestas::all();
+        $user = User::all();
+       
+        return view('alum.tema', array('propuestas' => $propuestas, 'tema' => $tema, 'user' => $user));
+    }
+
+
+    
+    public function tema_index($id)
+    {
+        $this->middleware('auth');
+        
+        $propuestas = Propuestas::all();
+         $user = User::find($id);
+         $tema = Tema::byUser(Auth::id())->get();
+        
+        
+         return view('alum.tema', array('propuestas' => $propuestas, 'tema' => $tema));
+         
+    }
+
+   
+
     public function asignar_index($id)
     {
         $tema = Tema::all();
