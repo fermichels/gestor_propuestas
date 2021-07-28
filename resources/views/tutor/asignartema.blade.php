@@ -1,4 +1,4 @@
-@extends('layouts.alum')
+@extends('layouts.tuto')
 
 @section('content')
 

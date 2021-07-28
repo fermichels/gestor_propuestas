@@ -49,6 +49,15 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 	Route::get('/asignartema/{id}', [App\Http\Controllers\TemaController::class, 'asignar_index'])->name('asignarTema');
 	Route::post('/asignartema', [App\Http\Controllers\TemaController::class, 'postUpdateOrCreateAsignacion'])->name('asignartema');
 	Route::get('/alum/tema/{id}', [App\Http\Controllers\TemaController::class, 'tema_index'])->name('tema');
+	Route::get('/propuestaspublicadas', [App\Http\Controllers\PropuestasController::class, 'root_propuestas'])->name('root_propuestas');
+	Route::get('/config', [App\Http\Controllers\Auth\ChangePasswordController::class, 'showChangePasswordForm'])->name('changePassword');
+	Route::post('/config', [App\Http\Controllers\Auth\ChangePasswordController::class, 'changePassword'])->name('changePassword');
+
+	Route::get('/alum/config', [App\Http\Controllers\Auth\ChangePasswordController::class, 'showChangeAlumPasswordForm'])->name('changePassword');
+	Route::post('/alum/config', [App\Http\Controllers\Auth\ChangePasswordController::class, 'changeAlumPassword'])->name('changePassword');
+
+	
+	//Route::post('changePassword','Auth\ChangePasswordController@changePassword')->name('changePassword');
     //Route::get('editUser/{id}','Auth\RegisterController@editar')->name('editUser');
     //Route::get('/edita/{id}', [
 	//	'uses' => 'TrabajoController@trabajos_index',

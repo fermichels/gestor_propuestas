@@ -40,6 +40,19 @@ class PropuestasController extends Controller
          
     }
 
+public function ver_propuestas()
+{
+    $this->middleware('auth');
+  
+     $user = User::all();
+   
+    $lineas = Lineas::all();
+    $propuestas = Propuestas::all();
+   
+    
+      return view('alum.propuestasalum', array('propuestas' => $propuestas,'user' => $user, 'lineas' => $lineas ) );
+     
+}
     
 
     public function lineas_index()
@@ -61,14 +74,14 @@ class PropuestasController extends Controller
 
 
 
-    public function ver_propuestas()
+    public function root_propuestas()
     {
         $this->middleware('auth');
        // $this->middleware('isroot');
         $propuestas = Propuestas::all();
         $user = User::all();
         $lineas = lineas::all();
-         return view('tutor.verpropuestas', array('propuestas' => $propuestas,'user' => $user, 'lineas' => $lineas ) );
+         return view('root.verpropuestas', array('propuestas' => $propuestas,'user' => $user, 'lineas' => $lineas ) );
 
 	
        

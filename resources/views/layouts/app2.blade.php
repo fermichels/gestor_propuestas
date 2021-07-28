@@ -80,7 +80,7 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
                             Líneas de Investigación
                         </a>
-                        <a class="nav-link" href="/propuestas">
+                        <a class="nav-link" href="/propuestaspublicadas">
                             <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
                             Prupuestas de Temas
                         </a>
@@ -89,11 +89,10 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-cog"></i></div>
                             Usuarios
                         </a>
-                        <a class="nav-link" href="/config">
-                            <div class="sb-nav-link-icon"><i class="fas fa-cog"></i></div>
-                            Configuración
-                        </a>
-                        <a class="nav-link" href="/">
+                        
+                        <a class="nav-link" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                                      document.getElementById('logout-form').submit();">
                             <div class="sb-nav-link-icon"><i class="fas fa-sign-out-alt"></i></div>
                             Salir
                         </a>

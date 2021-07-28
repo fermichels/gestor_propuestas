@@ -82,15 +82,17 @@
                         </a>
                         <a class="nav-link" href="/alum/lineasalum">
                             <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
-                            Prupuestas de Temas
+                            Propuestas de Temas
                         </a>
                         <div class="sb-sidenav-menu-heading">Opciones</div>
                         
-                        <a class="nav-link" href="/config">
+                        <a class="nav-link" href="/alum/config">
                             <div class="sb-nav-link-icon"><i class="fas fa-cog"></i></div>
                             Configuración
                         </a>
-                        <a class="nav-link" href="">
+                        <a class="nav-link" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                                      document.getElementById('logout-form').submit();">
                             <div class="sb-nav-link-icon"><i class="fas fa-sign-out-alt"></i></div>
                             Salir
                         </a>
