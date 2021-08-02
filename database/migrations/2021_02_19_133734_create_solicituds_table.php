@@ -19,10 +19,12 @@ class CreateSolicitudsTable extends Migration
             $table->timestamps();
             $table->unsignedBigInteger('propuesta_id');
             $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('user_id_2');
             $table->integer('tutor_id');
 
             $table->foreign('propuesta_id')->references('id')->on('propuestas');
             $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id_2')->references('id')->on('users');
            
         });
     }
