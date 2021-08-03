@@ -36,14 +36,36 @@ class TemaController extends Controller
         
         $propuestas = Propuestas::all();
          $user = User::find($id);
-         $tema = Tema::byUser(Auth::id())->get();
         
         
+        
+         
+        $tema = $tema = Tema::ofType(Auth::id())->get();
+
+        if($tema->isEmpty()) {
+
+            $tema = Tema::byUser(Auth::id())->get();
+            return view('alum.tema', array('propuestas' => $propuestas, 'tema' => $tema));
+        } else
+       
          return view('alum.tema', array('propuestas' => $propuestas, 'tema' => $tema));
          
     }
 
-   
+
+    public function tema_index2($id)
+	{
+        $user = User::find($id);
+        $propuestas = Propuestas::all();
+
+		$tema = $tema = Tema::ofType(Auth::id())->get();
+       
+           
+			return view('alum.tema', array('propuestas' => $propuestas, 'tema' => $tema));
+	
+		
+		
+	}
 
     public function asignar_index($id)
     {
@@ -67,6 +89,8 @@ class TemaController extends Controller
         $data = [
             'propuesta_id'=> $req['propuesta_id'],
             'user_id'=> $req['user_id'],
+            'user_id_2'=> $req['user_id_2'],
+
 			
 		];
         

@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class Solicitud extends Model
 {
-    protected $fillable = ['descripcion', 'propuesta_id', 'user_id', 'tutor_id'];
+    protected $fillable = ['descripcion', 'propuesta_id', 'user_id','user_id_2', 'tutor_id'];
 
 
     public function propuesta()

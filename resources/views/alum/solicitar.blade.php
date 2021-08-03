@@ -28,7 +28,7 @@
 
                             <div class=" form-group row">
                                 <label for="descripcion"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Mensage al tutor:') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Descripción') }}</label>
 
                                 <div class="col-md-6">
                                     <textarea id="descripcion" type="text"
@@ -53,17 +53,33 @@
                                     <input type="checkbox" id="chkPassport" />
                                 </label>
 
-                            </div>
+                               
+                                    
 
+                                    
+                                
+                            </div>
                             <div   id="dvPassport" style="display: none"
                                         class="col-md-6 offset-md-4">{{ __('Selecione con quien trabajarás:') }}
                                         <select name="user_id_2" id="user_id_2"
-                                        class="form-control @error('linea_id') is-invalid @enderror" required>
-                                        <option value="{{ isset($user->id) ? $user->name : '' }}">Selecciones el alumno con quien trabajarás</option>
+                                        class="form-control @error('user_id_2') is-invalid @enderror">
+                                        <option value="{{ isset($user->id) ? $user->name : '' }}"></option>
                                         @foreach ($user as $u)
                                             <option value="{{ $u->id }}">{{ $u->name }}</option>
                                         @endforeach
+
+                                    </select>
+
+
+
+
+
+
                             </div>
+
+
+
+
                             
 
 

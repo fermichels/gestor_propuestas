@@ -60,6 +60,7 @@ class SolicitudController extends Controller
             'propuesta_id' => $req['propuesta_id'],
             'tutor_id' => $req['tutor_id'],
             'user_id' => Auth::user()->id,
+            'user_id_2' => $req['user_id_2'],
 
         ];
         if ($req['id'] == null) {
