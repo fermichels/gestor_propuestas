@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Ui\Presets\React;
 
+$instanciaSolicitud = new SolicitudController();
 class TemaController extends Controller
 {
     /**
@@ -17,6 +18,12 @@ class TemaController extends Controller
      **
      * @return \Illuminate\Http\Response
      */
+    public function solicitud_index()
+    {
+        global $instanciaSolicitud;
+        $solicitud = $instanciaSolicitud->solicitudes();
+    }
+
 
     public function tema_indexx()
     {
@@ -69,12 +76,14 @@ class TemaController extends Controller
 
     public function asignar_index($id)
     {
+        //print_r($id);
         $tema = Tema::all();
 
         $propuestas = Propuestas::all();
         $user = User::all();
         $solicitud = Solicitud::find($id);
         return view('tutor.asignartema', array('propuestas' => $propuestas, 'tema' => $tema, 'user' => $user, 'solicitud' => $solicitud));
+        
     }
 
     /**
@@ -84,20 +93,20 @@ class TemaController extends Controller
      */
     public function postUpdateOrCreateAsignacion(Request $req)
 	{
-        $tema = Tema::find( $req['id'] );
-        
+        $this->validate($req, [
+            'propuesta_id' => 'unique:temas',
+            'user_id'=> 'unique:temas',
+            'user_id_2'=> 'unique:temas',
+        ]);
         $data = [
             'propuesta_id'=> $req['propuesta_id'],
             'user_id'=> $req['user_id'],
-            'user_id_2'=> $req['user_id_2'],
-
-			
+            'user_id_2'=> $req['user_id_2'],			
 		];
+        Tema::create($data);
+        Solicitud::destroy($req['solicitud_id']);
+		return redirect()->route("versolicitudes");
         
-            Tema::create($data);
-    
-		return redirect()->back();
-    
     }
    
     /**
@@ -151,8 +160,9 @@ class TemaController extends Controller
      * @param  \App\Models\Tema  $tema
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Tema $tema)
+    public function destroy($id)
     {
-        //
+        Solicitud::destroy($id);
+        return redirect()->route('versolicitudes');
     }
 }

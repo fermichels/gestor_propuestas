@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Propuestas;
+use App\Models\User;
+use App\Models\Lineas;
+
 
 class HomeController extends Controller
 {
@@ -29,16 +33,37 @@ class HomeController extends Controller
     {
         switch (Auth::user()->tipo) {
             case 'ROOT':
-                return view('root/areapersonal');
+                $propuestas = Propuestas::all();
+
+        
+                $lineas = lineas::all();
+                $user = User::all();
+                return view('root/areapersonal', array('propuestas' => $propuestas, 'lineas' => $lineas, 'user' => $user) );
                 break;
+                
             case 'ALUM':
-                return view('alum/areapersonal');
+
+
+                $propuestas = Propuestas::all();
+
+        
+                $lineas = lineas::all();
+                $user = User::all();
+                //return view('alum/areapersonal');
+                return view('alum/areapersonal', array('propuestas' => $propuestas, 'lineas' => $lineas, 'user' => $user) );
                 break;
+
             case 'TUTO':
-                return view('tutor/areapersonal');
+                $propuestas = Propuestas::all();
+
+        
+                $lineas = lineas::all();
+                $user = User::all();
+                return view('tutor/areapersonal', array('propuestas' => $propuestas, 'lineas' => $lineas, 'user' => $user) );
                 break;
+
             default:
-                return view('home');
+                return view('/');
                 break;
         }
     }

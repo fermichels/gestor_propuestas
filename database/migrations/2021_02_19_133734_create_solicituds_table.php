@@ -15,7 +15,7 @@ class CreateSolicitudsTable extends Migration
     {
         Schema::create('solicituds', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('descripcion');
+            $table->string('descripcion')->min(20)->max(255);
             $table->timestamps();
             $table->unsignedBigInteger('propuesta_id');
             $table->unsignedBigInteger('user_id');

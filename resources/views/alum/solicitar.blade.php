@@ -36,7 +36,7 @@
                                         autocomplete="descripcion"
                                         value="{{ isset($solicitar->description) ? $solicitar->descripcion : '' }}"
                                         required autocomplete="descripcion">
-                                                            {{ isset($solicitar->descripcion) ? $solicitar->descripcion : '' }}</textarea>
+                                                                {{ isset($solicitar->descripcion) ? $solicitar->descripcion : '' }}</textarea>
 
                                     @error('descripcion')
                                         <span class="invalid-feedback" role="alert">
@@ -53,46 +53,47 @@
                                     <input type="checkbox" id="chkPassport" />
                                 </label>
 
-                               
-                                    
-
-                                    
-                                
-                            </div>
-                            <div   id="dvPassport" style="display: none"
-                                        class="col-md-6 offset-md-4">{{ __('Selecione con quien trabajarás:') }}
-                                        <select name="user_id_2" id="user_id_2"
-                                        class="form-control @error('user_id_2') is-invalid @enderror">
-                                        <option value="{{ isset($user->id) ? $user->name : '' }}"></option>
-                                        @foreach ($user as $u)
-                                            <option value="{{ $u->id }}">{{ $u->name }}</option>
-                                        @endforeach
-
-                                    </select>
-
 
 
 
 
 
                             </div>
+                            <div id="dvPassport" style="display: none" class="col-md-6 offset-md-4">
+                                {{ __('Selecione con quien trabajarás:') }}
+                                <select name="user_id_2" id="user_id_2"
+                                    class="form-control @error('user_id_2') is-invalid @enderror">
+                                    <option value="{{ isset($user->id) ? $user->name : '' }}"></option>
+                                    @foreach ($user as $u)
+                                        <option value="{{ $u->id }}">{{ $u->name }}</option>
+                                    @endforeach
+                                   
+                                </select>
 
 
 
 
-                            
+
+
+                            </div>
+                            <br/>
 
 
 
-                            <div class="form-group row mb-0">
-                                <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        {{ isset($solicitar->id) ? 'Actualizar' : 'Registrar' }}
-                                    </button>
+
+                            <div>
+
+
+
+                                <div class="form-group row mb-0">
+                                    <div class="col-md-6 offset-md-4">
+                                        <button type="submit" class="btn btn-primary">
+                                            {{ isset($solicitar->id) ? 'Actualizar' : 'Registrar' }}
+                                        </button>
+                                    </div>
                                 </div>
+
                             </div>
-
-
                         </form>
 
 

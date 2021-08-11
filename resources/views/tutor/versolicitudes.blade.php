@@ -42,17 +42,19 @@
                                                      Solicitado por: {{ $s->user->name }}
 
                                                  
-
+                                                     &nbsp;
                                                     <a href="{{ route('asignarTema', $s->id, ) }}" class="btn btn-primary right-post"
                                                         style="font-size: 18px;">Asignar Tema
                                                         <i class="far fa-edit"></i>
                                                     </a>
+                                                    
+                                                    <a href="{{ route('deletSolicitud', $s->id) }}"
+                                                        class="btn btn-primaryr right-post " style="font-size: 18px; color"  
+                                                        onclick="return confirm('Deseas eliminar la Solicitud?');"> Borrar Solicitud <i
+                                                            class="fas fa-trash-alt"></i> </a>&nbsp;
                                                    
-                                                   
 
-                                                    <a class="right-post">&ensp;{{ $s->propuesta->estado }} &ensp;</a>
-
-
+                                                
                                                 </div>
 
 

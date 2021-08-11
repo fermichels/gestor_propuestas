@@ -15,11 +15,11 @@ class CreateLineasTable extends Migration
     {
         Schema::create('lineas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('description')->unique();
+            $table->string('name')->unique();
+            $table->string('description')->unique()->min(40);
         });
 
-         // Crea super user
+         
          $lineas = new Lineas;
          $lineas->name = 'Algoritmos de complejidad';
          $lineas->description = 'Investigaciones sobre el diseño, la implementacíon y el análisis de distintos tipos de algoritmos.';

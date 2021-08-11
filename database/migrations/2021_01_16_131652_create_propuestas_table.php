@@ -16,8 +16,8 @@ class CreatePropuestasTable extends Migration
     {
         Schema::create('propuestas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('titulo')->unique();
-            $table->string('descripcion');
+            $table->string('titulo')->unique()->min(10)->max(255);
+            $table->string('descripcion')->min(40);
             $table->enum('estado', array('ACT', 'ASG'));
             $table->unsignedBigInteger('linea_id');
             $table->unsignedBigInteger('user_id');

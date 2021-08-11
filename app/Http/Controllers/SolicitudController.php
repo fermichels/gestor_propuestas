@@ -33,7 +33,7 @@ class SolicitudController extends Controller
     {
         $this->middleware('auth');
         // $this->middleware('isroot');
-        $solicitud = Solicitud::findOrFail(1);
+        //$solicitud = Solicitud::findOrFail(1);
 
         $solicitud = Solicitud::where('tutor_id', '=', Auth::user()->id)->get();
 
@@ -47,13 +47,15 @@ class SolicitudController extends Controller
         return view('tutor.versolicitudes', array('propuestas' => $propuestas, 'lineas' => $lineas, 'solicitud' => $solicitud, 'user' => $user));
     }
 
-
-    protected function postUpdateOrCreateSolicitud(Request $req)
+   
+    protected function postUpdateOrCreateSolicitud(Request $req) 
     {
         $solicitud = Solicitud::find($req['id']);
 
         $id = Propuestas::find('id');
-
+        $this->validate($req, [
+            'descripcion' => 'required|max:255|min:20',
+        ]);
         $data = [
 
             'descripcion' => $req['descripcion'],
@@ -70,6 +72,13 @@ class SolicitudController extends Controller
             $solicitud->update($data);
         }
 
+        return redirect('/alum/lineasalum')->with('success', 'Solicitud enviada');
+    }
+
+    
+    public function borraSolicitud($id)
+    {
+    	Solicitud::destroy($id);
         return redirect()->back();
     }
 }

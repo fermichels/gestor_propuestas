@@ -27,7 +27,7 @@
                             <div class="col mr-2">
                                 <div class=" font-weight-bold text-uppercase color1">
                                     Propuestas</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">45</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{$propuestas->count()}}</div>
                             </div>
                             <div class="icon-card">
                                 <i class="far fa-file-alt"></i>
@@ -36,10 +36,7 @@
                     </div>
                 </div>
             </div>
-            <a class="nav-link" href="/alum/lineasalum">
-                <div class="sb-nav-link-icon"><i class="fas fa-cog"></i></div>
-                Configuración
-            </a>
+           
             <!-- Earnings (Monthly) Card Example -->
             <div class="col-xl-3 col-md-6 mb-4 border-color2 ">
                 <div class="card border-left-success shadow h-100 py-2">
@@ -48,7 +45,7 @@
                             <div class="col mr-2">
                                 <div class=" font-weight-bold text-uppercase color2">
                                     Líneas</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">150</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{$lineas->count()}}</div>
                             </div>
                             <div class="icon-card">
                                 <i class="far fa-file-pdf"></i>
@@ -66,7 +63,7 @@
                             <div class="col mr-2">
                                 <div class=" font-weight-bold text-uppercase color3">
                                     Usuarios</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">50</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{$user->count()}}</div>
                             </div>
                             <div class="icon-card">
                                 <i class="fas fa-users"></i>

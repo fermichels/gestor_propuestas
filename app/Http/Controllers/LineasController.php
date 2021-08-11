@@ -60,7 +60,10 @@ class LineasController extends Controller
     protected function postUpdateOrCreateLinea(Request $req)
 	{
 		$lineas = Lineas::find( $req['id'] );
-		
+        $this->validate($req, [
+            'name' => 'required',
+            'description'=> 'required|min:40',
+        ]);
 		$data = [
 			'name'=> $req['name'],
 			'description'=> $req['description'],
@@ -72,7 +75,7 @@ class LineasController extends Controller
             $lineas->update($data);
         }
     
-		return redirect()->route('lineas.index');
+		return redirect()->back();
     }
 
     public function borra_lineas($id)

@@ -45,11 +45,13 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 	Route::get('/alum/lineasalum/{id}', [App\Http\Controllers\PropuestasController::class, 'ver_por_lineas'])->name('alum/lineasalum');
 	Route::get('/solicitartema/{id}', [App\Http\Controllers\SolicitudController::class, 'solicitar_index'])->name('solicitarTema');
 	Route::post('/solicitartema', [App\Http\Controllers\SolicitudController::class, 'postUpdateOrCreateSolicitud'])->name('solicitartema');
-	Route::get('/versolicitudes', [App\Http\Controllers\SolicitudController::class, 'solicitudes'])->name('versolicitudes');
+	
+	
 	Route::get('/asignartema/{id}', [App\Http\Controllers\TemaController::class, 'asignar_index'])->name('asignarTema');
 	Route::post('/asignartema', [App\Http\Controllers\TemaController::class, 'postUpdateOrCreateAsignacion'])->name('asignartema');
 	Route::get('/alum/tema/{id}', [App\Http\Controllers\TemaController::class, 'tema_index'])->name('tema');
-
+	Route::get('/versolicitudes', [App\Http\Controllers\SolicitudController::class, 'solicitudes'])->name('versolicitudes');
+	Route::get('/deletSolicitud/{id}', [App\Http\Controllers\SolicitudController::class, 'borraSolicitud'])->name('deletSolicitud');
 	//Route::get('/alum/tema/{id}', [App\Http\Controllers\TemaController::class, 'tema_index'])->name('tema');
 
 

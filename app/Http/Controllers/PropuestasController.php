@@ -93,7 +93,12 @@ public function ver_propuestas()
     protected function postUpdateOrCreatePropuesta(Request $req)
 	{
         $propuestas = Propuestas::find( $req['id'] );
-        
+
+        $this->validate($req, [
+            'titulo' => 'required|min:10|max:255|unique:propuestas',
+            'descripcion'=> 'required|min:40|unique:propuestas',
+            'linea_id'=> 'required',
+        ]);
 		
 		$data = [
 			'titulo'=> $req['titulo'],

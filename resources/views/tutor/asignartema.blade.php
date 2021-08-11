@@ -21,6 +21,7 @@
 
 
                             <input type="hidden" name="user_id" id="user_id" value="{{ $solicitud->user->id }}">
+                            <input type="hidden" name="solicitud_id" id="solicitud_id" value="{{ $solicitud->id }}">
                             <div class=" form-group row">
                                 <label for="user_id"
                                     class="col-md-4 col-form-label text-md-right">{{ __('Alumno') }}</label>
@@ -86,8 +87,8 @@
 
 
                             <div class="form-group row mb-0">
-                                <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
+                                <div class="col-md-6 offset-md-4 " >
+                                    <button type="submit" class="btn btn-primary" >
                                         {{ isset($tema->id) ?: 'Asignar Tema' }}
                                     </button>
                                 </div>

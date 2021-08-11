@@ -2,7 +2,7 @@
 @section('content')
 
     <div class="container-fluid">
-        <h1 class="mt-4">tutor</h1>
+        <h1 class="mt-4">Bienvenido {{ Auth::user()->name }}</h1>
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item active">Área Personal/tutor</li>
         </ol>
@@ -27,7 +27,7 @@
                             <div class="col mr-2">
                                 <div class=" font-weight-bold text-uppercase color1">
                                     Propuestas</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">45</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{$propuestas->count()}}</div>
                             </div>
                             <div class="icon-card">
                                 <i class="far fa-file-alt"></i>
@@ -45,7 +45,7 @@
                             <div class="col mr-2">
                                 <div class=" font-weight-bold text-uppercase color2">
                                     Líneas</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">150</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{$lineas->count()}}</div>
                             </div>
                             <div class="icon-card">
                                 <i class="far fa-file-pdf"></i>
@@ -63,7 +63,7 @@
                             <div class="col mr-2">
                                 <div class=" font-weight-bold text-uppercase color3">
                                     Usuarios</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">50</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{$user->count()}}</div>
                             </div>
                             <div class="icon-card">
                                 <i class="fas fa-users"></i>

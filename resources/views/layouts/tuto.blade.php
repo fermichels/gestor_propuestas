@@ -81,7 +81,7 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
                             Prupuestas de Temas
                         </a>
-                        <a class="nav-link" href="/versolicitudes">
+                        <a class="nav-link" href="{{url('versolicitudes')}}">
                             <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
                             Solicitudes
                         </a>

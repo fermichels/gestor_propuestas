@@ -36,6 +36,33 @@ class CreateUsersTable extends Migration
         $user->tipo = 'ROOT';
         $user->save();
 
+         // Crea tutor
+         $user2 = new User;
+         $user2->name = 'tutor';
+         $user2->email = 'tutor@mail.com';
+         $user2->username = 'tutor';
+         $user2->password = Hash::make('tutor');
+         $user2->tipo = 'TUTO';
+         $user2->save();
+
+
+          // Crea alumno
+        $user3 = new User;
+        $user3->name = 'alum';
+        $user3->email = 'alum@mail.com';
+        $user3->username = 'alum';
+        $user3->password = Hash::make('alum');
+        $user3->tipo = 'ALUM';
+        $user3->save();
+
+// Crea alumno
+        $user4 = new User;
+        $user4->name = 'alum1';
+        $user4->email = 'alum1@mail.com';
+        $user4->username = 'alum1';
+        $user4->password = Hash::make('alum1');
+        $user4->tipo = 'ALUM';
+        $user4->save();
     }
 
     /**

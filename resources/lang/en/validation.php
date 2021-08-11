@@ -85,16 +85,16 @@ return [
     'mimes' => 'The :attribute must be a file of type: :values.',
     'mimetypes' => 'The :attribute must be a file of type: :values.',
     'min' => [
-        'numeric' => 'The :attribute must be at least :min.',
-        'file' => 'The :attribute must be at least :min kilobytes.',
-        'string' => 'The :attribute must be at least :min characters.',
-        'array' => 'The :attribute must have at least :min items.',
+        'numeric' => 'The :attribute debe tener minimo :min.',
+        'file' => 'El :attribute debe tener maximo :min kilobytes.',
+        'string' => 'El :attribute debe tener minimo :min caracteres.',
+        'array' => 'El :attribute debe tene maximo :min items.',
     ],
     'multiple_of' => 'The :attribute must be a multiple of :value',
     'not_in' => 'The selected :attribute is invalid.',
     'not_regex' => 'The :attribute format is invalid.',
-    'numeric' => 'The :attribute must be a number.',
-    'password' => 'The password is incorrect.',
+    'numeric' => 'El :attribute debe ser un numero.',
+    'password' => 'La contraseña es incorrecta.',
     'present' => 'The :attribute field must be present.',
     'regex' => 'The :attribute format is invalid.',
     'required' => 'The :attribute field is required.',
@@ -114,7 +114,7 @@ return [
     'starts_with' => 'The :attribute must start with one of the following: :values.',
     'string' => 'The :attribute must be a string.',
     'timezone' => 'The :attribute must be a valid zone.',
-    'unique' => 'The :attribute has already been taken.',
+    'unique' => 'Esta :attribute ya existe!.',
     'uploaded' => 'The :attribute failed to upload.',
     'url' => 'The :attribute format is invalid.',
     'uuid' => 'The :attribute must be a valid UUID.',
@@ -131,8 +131,37 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'name' => [
+            'required' => 'El nombre es requerido',
+        ],
+        'descripcion' => [
+            'required' => 'la descripción es requerida',
+            'max'=>'La descripcion debe posser maximo 255 caracteres',
+            'min'=>'La Descripción es muy corta',
+        ],
+        'description' => [
+            'required' => 'la descripción es requerida',
+            'max'=>'La descripcion debe posser maximo 255 caracteres',
+            'min'=>'La Descripción es muy corta',
+            'unique'=>'Esta Descripción ya existe'
+        ],
+        'titulo' => [
+            'required' => 'la descripción es requerida',
+            'max'=>'La descripcion debe posser maximo 255 caracteres',
+            'min'=>'La Descripción es muy corta',
+            'unique'=>'Este Titulo ya existe'
+        ],
+        'propuesta_id' => [
+            
+            'unique'=>'Esta propuesta ya fue asignada'
+        ],
+        'user_id' => [
+            
+            'unique'=>'Esta propuesta ya fue asignada'
+        ],
+        'user_id_2' => [
+            
+            'unique'=>'Esta propuesta ya fue asignada'
         ],
     ],
 
