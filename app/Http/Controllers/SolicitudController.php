@@ -16,43 +16,39 @@ class SolicitudController extends Controller
      
      * @return \Illuminate\Http\Response
      */
+
+    /*   Metodo para el alumno
+     solicitar un tema */
     public function solicitar_index($id)
     {
         $this->middleware('auth');
         // $this->middleware('isroot');
- 
-
         $solicitud = Solicitud::all();
-
         $propuestas = Propuestas::find($id);
         $user = User::all();
         $lineas = lineas::all();
         return view('alum.solicitar', array('propuestas' => $propuestas, 'lineas' => $lineas, 'solicitud' => $solicitud, 'user' => $user));
     }
+
+
+    /* Metodo por el cual el tutor
+    puede ver las solicitudes creadas
+    en sus temas publicados */
     public function solicitudes()
     {
         $this->middleware('auth');
-        // $this->middleware('isroot');
-        //$solicitud = Solicitud::findOrFail(1);
-
         $solicitud = Solicitud::where('tutor_id', '=', Auth::user()->id)->get();
-
-
-
         $user = User::all();
-
         $propuestas = Propuestas::all();
-
         $lineas = lineas::all();
         return view('tutor.versolicitudes', array('propuestas' => $propuestas, 'lineas' => $lineas, 'solicitud' => $solicitud, 'user' => $user));
     }
 
-   
-    protected function postUpdateOrCreateSolicitud(Request $req) 
+
+    //Metodo para crear una solicitud
+    protected function postUpdateOrCreateSolicitud(Request $req)
     {
         $solicitud = Solicitud::find($req['id']);
-
-        $id = Propuestas::find('id');
         $this->validate($req, [
             'descripcion' => 'required|max:255|min:20',
         ]);
@@ -75,10 +71,10 @@ class SolicitudController extends Controller
         return redirect('/alum/lineasalum')->with('success', 'Solicitud enviada');
     }
 
-    
+    //Metodo borrar
     public function borraSolicitud($id)
     {
-    	Solicitud::destroy($id);
+        Solicitud::destroy($id);
         return redirect()->back();
     }
 }

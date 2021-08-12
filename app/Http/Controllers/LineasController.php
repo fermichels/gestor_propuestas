@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Validator;
 
 class LineasController extends Controller
 {
-    
 
-     /**
+
+    /**
      * Where to redirect users after registration.
      **
      * @var string
@@ -27,99 +27,56 @@ class LineasController extends Controller
      
      * @return void
      */
+
+    // Metodo por el cual user ROOT accessa las lineas
     public function lineas_index()
     {
         $this->middleware('auth');
-       // $this->middleware('isroot');
+        // $this->middleware('isroot');
         $lineas = Lineas::all();
-         return view('root.lineas', array('linea' => $lineas,'linea' => $lineas) );
-
-	
-       
-    }
-    public function showRegistrationForm() {
-        $lineas = (object)  array(
-            'name' =>null, 'description' => null,
-        );
-        $linea = Lineas::all();
-        return view('root.lineas', array('linea' => $linea,'lineas' => $lineas) );
+        return view('root.lineas', array('linea' => $lineas, 'linea' => $lineas));
     }
 
 
- 
+
+
+    // Editar linea
     public function editar($id)
     {
-        $lineas =Lineas::find($id);
+        $lineas = Lineas::find($id);
         $linea = Lineas::all();
-        return view('root.lineas', array('linea' => $linea,'lineas' => $lineas) );
-
-        
+        return view('root.lineas', array('linea' => $linea, 'lineas' => $lineas));
     }
-  
-  
-    protected function postUpdateOrCreateLinea(Request $req)
-	{
-		$lineas = Lineas::find( $req['id'] );
-        $this->validate($req, [
-            'name' => 'required',
-            'description'=> 'required|min:40',
-        ]);
-		$data = [
-			'name'=> $req['name'],
-			'description'=> $req['description'],
-			
-		];
-		if($req['id']==null){
+
+
+    // Crear Linea
+
+    protected function postCreateLinea(Request $req)
+    {
+        $lineas = Lineas::find($req['id']);
+
+        $data = [
+            'name' => $req['name'],
+            'description' => $req['description'],
+
+        ];
+        if ($req['id'] == null) {
+            $this->validate($req, [
+                'name' => 'required|unique:lineas',
+                'description' => 'required|min:40|unique:lineas',
+            ]);
             Lineas::create($data);
-        }else{
+        } else {
             $lineas->update($data);
         }
-    
-		return redirect()->back();
+
+        return redirect('/lineas');
     }
 
+    //Borra
     public function borra_lineas($id)
     {
-    	Lineas::destroy($id);
+        Lineas::destroy($id);
         return redirect()->route('lineas.index');
     }
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:150'],
-            'description' => ['required', 'string', 'max:255'],
-        ]);
-    }
-    public function update(Request $request, $id)
-{
-    Lineas::where('id', $id)->update($request->all());
-    return redirect()->route('lineas.index');
-}
-
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\Models\lineas
-     */
-    //     public function create(Request $req)
-    // {
-    // 	//dd($req['autor_1']);
-    //     $data = [
-    //         'name'=> $req['name'],
-    //         'description'=> $req['description'],
-            
-    //     ];
-    //     Lineas::create($data);
-
-    //     return redirect()->route('lineas.index');
-    // }
-    
-
 }

@@ -82,7 +82,11 @@
                         </a>
                         <a class="nav-link" href="/alum/lineasalum">
                             <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
-                            Propuestas de Temas
+                            Temas Disponibles 
+                        </a>
+                        <a class="nav-link" href="/alum/temasasignados">
+                            <div class="sb-nav-link-icon"><i class="fas fa-clipboard"></i></div>
+                            Temas Asignados
                         </a>
                         <div class="sb-sidenav-menu-heading">Opciones</div>
                         

@@ -31,6 +31,8 @@ class propuestas extends Model
             $user->where('id', $id);
         });
     }
+
+    
     
     
 }

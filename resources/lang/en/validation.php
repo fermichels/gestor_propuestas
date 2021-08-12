@@ -133,22 +133,23 @@ return [
     'custom' => [
         'name' => [
             'required' => 'El nombre es requerido',
+            'unique'=>'Este nombre ya existe'
         ],
         'descripcion' => [
             'required' => 'la descripción es requerida',
             'max'=>'La descripcion debe posser maximo 255 caracteres',
-            'min'=>'La Descripción es muy corta',
+            'min'=>'La Descripción es muy corta, debe contener mas de 40 caracteres!',
         ],
         'description' => [
             'required' => 'la descripción es requerida',
             'max'=>'La descripcion debe posser maximo 255 caracteres',
-            'min'=>'La Descripción es muy corta',
+            'min'=>'La Descripción es muy corta, debe contener mas de 40 caracteres!',
             'unique'=>'Esta Descripción ya existe'
         ],
         'titulo' => [
             'required' => 'la descripción es requerida',
-            'max'=>'La descripcion debe posser maximo 255 caracteres',
-            'min'=>'La Descripción es muy corta',
+            'max'=>'El Titulo debe posser maximo 255 caracteres',
+            'min'=>'El titulo debe contener mas de 10 caracteres!!',
             'unique'=>'Este Titulo ya existe'
         ],
         'propuesta_id' => [

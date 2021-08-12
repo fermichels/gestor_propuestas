@@ -20,6 +20,9 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
+
+
+
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // ROOT ROUTES
@@ -34,7 +37,7 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 	Route::get('/lineas', [App\Http\Controllers\LineasController::class, 'lineas_index'])->name('lineas.index');
 
 	//Route::post('/lineas', [App\Http\Controllers\LineasController::class, 'postGuardaLinea'])->name('lineas');
-	Route::post('/lineas', [App\Http\Controllers\LineasController::class, 'postUpdateOrCreateLinea'])->name('lineas');
+	Route::post('/lineas', [App\Http\Controllers\LineasController::class, 'postCreateLinea'])->name('lineas');
 	
 	Route::get('/deletPropuesta/{id}', [App\Http\Controllers\PropuestasController::class, 'borra_propuestas'])->name('deletPropuesta');
 	Route::get('/propuestas', [App\Http\Controllers\PropuestasController::class, 'propuestas_index'])->name('propuestas');
@@ -43,6 +46,9 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 	Route::get('/editPropuesta/{id}', [App\Http\Controllers\PropuestasController::class, 'editar'])->name('editPropuesta');
 	Route::get('/alum/lineasalum', [App\Http\Controllers\PropuestasController::class, 'lineas_index'])->name('alum/lineasalum');
 	Route::get('/alum/lineasalum/{id}', [App\Http\Controllers\PropuestasController::class, 'ver_por_lineas'])->name('alum/lineasalum');
+
+	Route::get('/alum/temasasignados', [App\Http\Controllers\PropuestasController::class, 'ver_asig'])->name('alum/temasasignados');
+	
 	Route::get('/solicitartema/{id}', [App\Http\Controllers\SolicitudController::class, 'solicitar_index'])->name('solicitarTema');
 	Route::post('/solicitartema', [App\Http\Controllers\SolicitudController::class, 'postUpdateOrCreateSolicitud'])->name('solicitartema');
 	
@@ -55,7 +61,7 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 	//Route::get('/alum/tema/{id}', [App\Http\Controllers\TemaController::class, 'tema_index'])->name('tema');
 
 
-	Route::get('/propuestaspublicadas', [App\Http\Controllers\PropuestasController::class, 'root_propuestas'])->name('root_propuestas');
+	Route::get('/propuestaspublicadas', [App\Http\Controllers\PropuestasController::class, 'ver_propuestas'])->name('ver_propuestas');
 	Route::get('/config', [App\Http\Controllers\Auth\ChangePasswordController::class, 'showChangePasswordForm'])->name('changePassword');
 	Route::post('/config', [App\Http\Controllers\Auth\ChangePasswordController::class, 'changePassword'])->name('changePassword');
 
