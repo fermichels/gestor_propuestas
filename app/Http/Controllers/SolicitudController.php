@@ -68,7 +68,7 @@ class SolicitudController extends Controller
             $solicitud->update($data);
         }
 
-        return redirect('/alum/lineasalum')->with('success', 'Solicitud enviada');
+        return redirect()->back()->with('success', 'Solicitud enviada con exito');
     }
 
     //Metodo borrar

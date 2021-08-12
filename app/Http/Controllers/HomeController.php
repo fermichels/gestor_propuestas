@@ -67,4 +67,11 @@ class HomeController extends Controller
                 break;
         }
     }
+    public function error404()
+    {
+       
+       return view('error404');
+    }
+        
+
 }

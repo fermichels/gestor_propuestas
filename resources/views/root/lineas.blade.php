@@ -4,23 +4,32 @@
         <div class="container-fluid">
             <div class="row justify-content-center">
                 <div class="col-md-12">
+
                     <div class="card">
-                        <div class="card-header"> {{ isset($lineas->id) ? 'Actualizar Línea de Investigacion' : 'Registrar  Línea de Investigacion' }}</div>
+                        <div class="card-header">
+                            {{ isset($lineas->id) ? 'Actualizar Línea de Investigacion' : 'Registrar  Línea de Investigacion' }}
+                        </div>
 
                         <div class="card-body ">
+                            @if (session()->has('message'))
+                                <div class="alert alert-success">
+                                    {{ session()->get('message') }}
+                                </div>
+                            @endif
                             <form method="POST" action="{{ route('lineas') }}">
                                 @csrf
 
-                                <input type="hidden" name="id" id="id" value="{{ isset($lineas->id) ? $lineas->id : '' }}">
+                                <input type="hidden" name="id" id="id"
+                                    value="{{ isset($lineas->id) ? $lineas->id : '' }}">
                                 <div class="form-group row">
                                     <label for="name" class="col">{{ __('Nombre') }}</label>
 
                                     <div class="col-md-10 mb-10">
                                         <input id="name" type="text"
-                                            class="form-control @error('name') is-invalid @enderror" name="name" required 
+                                            class="form-control @error('name') is-invalid @enderror" name="name" required
                                             autocomplete="name" autofocus
-                                            value="{{ isset($lineas->name) ? $lineas->name : '' }}"
-                                            required autocomplete="name" >
+                                            value="{{ isset($lineas->name) ? $lineas->name : '' }}" required
+                                            autocomplete="name">
 
                                         @error('name')
                                             <span class="invalid-feedback" role="alert">
@@ -38,9 +47,9 @@
                                         <textarea id="description" type="text"
                                             class="form-control @error('description') is-invalid @enderror"
                                             name="description" autocomplete="description"
-                                            value="{{ isset($lineas->description) ? $lineas->description : '' }}"
-                                             required autocomplete="description">
-                                             {{ isset($lineas->description) ? $lineas->description : '' }}</textarea>
+                                            value="{{ isset($lineas->description) ? $lineas->description : '' }}" required
+                                            autocomplete="description">
+                                                     {{ isset($lineas->description) ? $lineas->description : '' }}</textarea>
 
                                         @error('description')
                                             <span class="invalid-feedback" role="alert">
@@ -78,7 +87,7 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                
+
                                 <th scope="col">ID</th>
                                 <th scope="col">Nombre</th>
                                 <th scope="col">Descripción</th>
@@ -91,12 +100,14 @@
                             @foreach ($linea as $l)
                                 <tr>
                                     <th scope="row">
-                                        <span class="d-inline-block text-truncate text-shadow" style="max-width: 200px; min-width: 5;">
+                                        <span class="d-inline-block text-truncate text-shadow"
+                                            style="max-width: 200px; min-width: 5;">
                                             {{ $l->id }}
                                         </span>
                                     </th>
                                     <th scope="row">
-                                        <span class="d-inline-block text-truncate text-shadow" style="max-width: 200px; min-width: 5;">
+                                        <span class="d-inline-block text-truncate text-shadow"
+                                            style="max-width: 200px; min-width: 5;">
                                             {{ $l->name }}
                                         </span>
                                     </th>

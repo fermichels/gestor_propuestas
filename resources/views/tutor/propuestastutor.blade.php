@@ -28,6 +28,11 @@
                     <div class="card-header">{{ __('Propuestas') }}</div>
 
                     <div class="card-body">
+                        @if (session()->has('message'))
+                        <div class="alert alert-success">
+                            {{ session()->get('message') }}
+                        </div>
+                    @endif
                         <form class="card-body" method="POST" action="{{ route('propuestas') }}">
                             @csrf
 

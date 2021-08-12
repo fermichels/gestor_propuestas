@@ -80,7 +80,7 @@ class TemaController extends Controller
 
         Tema::create($data);
         Solicitud::destroy($req['solicitud_id']);
-        return redirect()->route("versolicitudes");
+        return redirect()->route('versolicitudes')->with('message', 'Tema Asignado con exito!');
     }
 
    //Borra solicitud

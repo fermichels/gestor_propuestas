@@ -16,6 +16,11 @@
                     <div class="card-header">{{ __('asignartema') }}</div>
 
                     <div class="card-body col-md-11">
+                        @if (session()->has('message'))
+                        <div class="alert alert-success">
+                            {{ session()->get('message') }}
+                        </div>
+                    @endif
                         <form method="POST" action="{{ route('asignartema') }}">
                             @csrf
 

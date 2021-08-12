@@ -16,6 +16,7 @@
                     <div class="card-header">{{ __('solicitartema') }}</div>
 
                     <div class="card-body col-md-11">
+                    
                         <form method="POST" action="{{ route('solicitartema') }}">
                             @csrf
 

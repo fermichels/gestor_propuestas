@@ -112,7 +112,7 @@ class PropuestasController extends Controller
             $propuestas->update($data);
         }
 
-        return redirect('/propuestas');
+        return redirect('/propuestas')->with('message', 'Guardado con exito!');
     }
 
 

@@ -2,9 +2,11 @@
 @section('content')
     <main>
         <!-- Content  * -->
+
+       
         <div class="container-fluid">
 
-
+          
             <div class="row">
                 @foreach ($lineas as $l)
 

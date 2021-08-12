@@ -65,12 +65,13 @@ class LineasController extends Controller
                 'name' => 'required|unique:lineas',
                 'description' => 'required|min:40|unique:lineas',
             ]);
-            Lineas::create($data);
+            Lineas::create($data);;
+            
         } else {
             $lineas->update($data);
         }
 
-        return redirect('/lineas');
+        return redirect('/lineas')->with('message', 'Guardado con exito!');
     }
 
     //Borra
