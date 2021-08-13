@@ -6,6 +6,7 @@ use App\Models\lineas;
 use Illuminate\Http\Request;
 use App\Models\Propuestas;
 use App\Models\User;
+use App\Models\Tema;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Ui\Presets\React;
 
@@ -50,6 +51,16 @@ class PropuestasController extends Controller
         $propuestas = Propuestas::all();
         $propuestas = $propuestas->where('estado', '=', 'ASG');
         return view('alum.propuestasalumasig', array('propuestas' => $propuestas, 'user' => $user, 'lineas' => $lineas));
+    }
+
+    public function mis_propuestas_asig()
+    {
+        $this->middleware('auth');
+        $propuestas = Propuestas::byUser(Auth::id())->get();
+        $propuestas = $propuestas->where('estado', '=', 'ASG');
+        $lineas = lineas::all();
+        $temas = Tema::all();
+        return view('tutor.mispropuestasasig', array('propuestas' => $propuestas, 'lineas' => $lineas, 'temas' => $temas));
     }
 
 

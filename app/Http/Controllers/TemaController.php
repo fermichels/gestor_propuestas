@@ -38,6 +38,13 @@ class TemaController extends Controller
             return view('alum.tema', array('propuestas' => $propuestas, 'tema' => $tema));
     }
 
+    public function ver_mis_propuestas_asig(){
+        $tema = Tema::all();
+        $propuestas = Propuestas::all();
+        $user = User::all();
+        return view('tutor.mispropuestasasig', array('propuestas' => $propuestas, 'tema' => $tema, 'user' => $user));
+    }
+
     /* //Metodo para asignar um tema 
     a um alumno */
     public function asignar_index($id)

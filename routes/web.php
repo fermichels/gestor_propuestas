@@ -63,6 +63,7 @@ Route::middleware(['tuto'])->group(function () {
 	Route::get('/deletPropuesta/{id}', [App\Http\Controllers\PropuestasController::class, 'borra_propuestas'])->name('deletPropuesta');
 	Route::get('/propuestas', [App\Http\Controllers\PropuestasController::class, 'propuestas_index'])->name('propuestas');
 	Route::get('/verpropuestas', [App\Http\Controllers\PropuestasController::class, 'ver_propuestas'])->name('ver_propuestas');
+	Route::get('/mispropuestasasig', [App\Http\Controllers\TemaController::class, 'ver_mis_propuestas_asig'])->name('ver_mis_propuestas_asig');
 	Route::post('/propuestas', [App\Http\Controllers\PropuestasController::class, 'postUpdateOrCreatePropuesta'])->name('propuesta');
 	Route::get('/editPropuesta/{id}', [App\Http\Controllers\PropuestasController::class, 'editar'])->name('editPropuesta');
 	Route::get('/asignartema/{id}', [App\Http\Controllers\TemaController::class, 'asignar_index'])->name('asignarTema');

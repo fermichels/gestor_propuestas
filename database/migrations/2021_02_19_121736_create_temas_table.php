@@ -21,7 +21,8 @@ class CreateTemasTable extends Migration
             $table->unsignedBigInteger('user_id_2')->unique()->nullable();
             
             $table->foreign('propuesta_id')->references('id')->on('propuestas');
-
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id_2')->references('id')->on('users');
         });
     }
 

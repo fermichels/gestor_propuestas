@@ -18,6 +18,9 @@
                         <a class="nav-link" href="/verpropuestas"><i class="fas fa-home"></i> Propuestas <span
                                 class="sr-only"></span></a>
                     </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/mispropuestasasig" ><i class="fas fa-home"></i> Mis Propuestas Asignadas<span class="sr-only">(current)</span></a>
+                      </li>
 
 
                 </ul>

@@ -35,7 +35,7 @@ class Tema extends Model
     }
     public function scopeByUser2(Builder $query, int $id)
     {
-        return $query->whereHas('user', function ($user_id_2) use ($id) {
+        return $query->whereHas('user2', function ($user_id_2) use ($id) {
             $user_id_2->where('id', $id);
         });
     }
