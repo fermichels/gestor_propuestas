@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('email')->nullable();
+            $table->string('celular')->nullable()->min(10)->is_numeric();
             $table->string('username')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
@@ -40,6 +41,7 @@ class CreateUsersTable extends Migration
          $user2 = new User;
          $user2->name = 'tutor';
          $user2->email = 'tutor@mail.com';
+         $user2->celular = '0984703739';
          $user2->username = 'tutor';
          $user2->password = Hash::make('tutor');
          $user2->tipo = 'TUTO';

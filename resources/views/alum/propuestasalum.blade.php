@@ -1,15 +1,16 @@
 @extends('layouts.alum')
+<title>Propuestas</title>
 @section('content')
-<!-- Content Row * -->
+    <!-- Content Row * -->
     <div class="container-fluid">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-           
+
         </nav>
-        
+
         <div>
             <div class="card-header py-3">
                 <h6 class="m-0 font-weight-bold text-primary">Propuestas de tema </h6>
@@ -43,8 +44,9 @@
                                                     {{ $p->user->name }}
 
 
-                                                   
-                                                    <a href="{{ route('solicitarTema', $p->id) }}" class="btn btn-primary right-post"
+
+                                                    <a href="{{ route('solicitarTema', $p->id) }}"
+                                                        class="btn btn-primary right-post"
                                                         style="font-size: 18px;">Solicitar
                                                         <i class="far fa-edit"></i>
                                                     </a>
@@ -56,8 +58,9 @@
 
 
                                             </div>
+                                        </th>
                                     </tr>
-                                    </th>
+
                                 @endforeach
 
                             </tbody>
@@ -65,11 +68,7 @@
                     </div>
                 </div>
             </div>
-
-
-
         </div>
-
-    </div>
     
+    </div>
 @endsection

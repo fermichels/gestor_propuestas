@@ -26,6 +26,8 @@ class SolicitudController extends Controller
         $solicitud = Solicitud::all();
         $propuestas = Propuestas::find($id);
         $user = User::all();
+        $user = $user->where('tipo', '=','ALUM');
+       // $user = User::where('tipo', '=','ALUM');
         $lineas = lineas::all();
         return view('alum.solicitar', array('propuestas' => $propuestas, 'lineas' => $lineas, 'solicitud' => $solicitud, 'user' => $user));
     }

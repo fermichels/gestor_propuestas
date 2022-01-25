@@ -27,6 +27,7 @@ Route::middleware(['root'])->group(function () {
 	Route::get('/user', [App\Http\Controllers\Auth\RegisterController::class, '__construct'])->name('user.register');
 
 	Route::get('/editUser/{id}', [App\Http\Controllers\Auth\RegisterController::class, 'editar'])->name('editUser');
+	Route::get('/deletuser/{id}', [App\Http\Controllers\Auth\RegisterController::class, 'delete'])->name('deletuser');
 
 	Route::get('/editLineas/{id}', [App\Http\Controllers\LineasController::class, 'editar'])->name('editLineas');
 	Route::get('/deletLineas/{id}', [App\Http\Controllers\LineasController::class, 'borra_lineas'])->name('deletLineas');
@@ -51,7 +52,10 @@ Route::middleware(['alum'])->group(function () {
 	Route::get('/alum/tema/{id}', [App\Http\Controllers\TemaController::class, 'tema_index'])->name('tema');
 	Route::get('/alum/config', [App\Http\Controllers\Auth\ChangePasswordController::class, 'showChangeAlumPasswordForm'])->name('changePassword');
 	Route::post('/alum/config', [App\Http\Controllers\Auth\ChangePasswordController::class, 'changeAlumPassword'])->name('changePassword');
-	
+
+
+	Route::get('/alum/cambiardatos/{id}', [App\Http\Controllers\Auth\RegisterController::class, 'editar_datos'])->name('editar_datos');
+	Route::post('/alum/cambiardatos/{id}', [App\Http\Controllers\Auth\RegisterController::class, 'posteditar'])->name('editar_datos');
 	
 });
 

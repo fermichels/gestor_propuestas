@@ -54,6 +54,7 @@
                                             <div class="footer-post">
                                                 Categoria:
                                                 <a href="#">{{ $p->linea->name }}</a>
+                                                &ensp;
                                                 Posted on {{ $p->created_at->format('d/m/Y') }} Por:
                                                 {{ $p->user->name }}
 

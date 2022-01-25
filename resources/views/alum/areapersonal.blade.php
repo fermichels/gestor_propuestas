@@ -1,4 +1,5 @@
 @extends('layouts.alum')
+<title>Area personal</title>
 @section('content')
 
     <div class="container-fluid">
@@ -17,15 +18,15 @@
     </nav>
     <main>
         <!-- Content Row * -->
-        <div class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="navbar navbar-expand-lg navbar-light bg-light ">
 
             <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4 border-color1">
+            <div class="col-xl-3 col-md-6 mb-4 border-color1" >
                 <div class="card border-left-primary shadow h-100 py-2">
-                    <div class="card-body">
+                    <div class="card-body " >
                         <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class=" font-weight-bold text-uppercase color1">
+                            <div class="col mr-2" >
+                                <div class=" font-weight-bold text-uppercase color1" >
                                     Propuestas</div>
                                 <div class="h5 mb-0 font-weight-bold text-gray-800">{{$propuestas->count()}}</div>
                             </div>

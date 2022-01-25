@@ -5,11 +5,12 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 
 use App\Models\User;
-
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\RegistersUsers;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use phpDocumentor\Reflection\Types\Nullable;
 
 class RegisterController extends Controller
 {
@@ -46,17 +47,42 @@ class RegisterController extends Controller
     }
     public function showRegistrationForm() {
         $user = (object)  array(
-            'name' =>null, 'username' => null, 'email' => null, 'password' => null, 'tipo' => null,
+            'name' =>null, 'username' => null, 'email' => null, 'password' => null, 'tipo' => null, 'ceular' => null,
         );
         $users = User::all();
         return view('root.register', array('users' => $users,'user' => $user) );
     }
+
+    public function editar_datos($id)
+    {
+        $user =User::find($id);
+        $users = User::all();
+        return view('alum.cambiardatos', array('users' => $users,'user' => $user) );
+    }
+
+    
+        public function posteditar(Request $req)
+        {
+            $data = [
+                'name' => $req['name'],
+                'description' => $req['description'],
+            ];
+            User::update($data);
+            return redirect()->back();
+        }
+    
 
     public function editar($id)
     {
         $user =User::find($id);
         $users = User::all();
         return view('root.register', array('users' => $users,'user' => $user) );
+    }
+
+    public function delete($id)
+    {
+        User::destroy($id);
+        return  redirect('/register')->with('message', 'Borrado con exito!');
     }
 
     /**
@@ -71,7 +97,8 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'username' => ['required', 'string', 'max:55'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'tipo' => ['required', 'string', 'max:4']
+            'tipo' => ['required', 'string', 'max:4'],
+            'celular' => [ 'numeric', 'min:10','nullable',],
         ]);
     }
 
@@ -91,6 +118,7 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'tipo' => $data['tipo'],
+            'celular' => $data['celular'],
         ]);
         return redirect('/register')->with('message', 'Guardado con exito!');
     }

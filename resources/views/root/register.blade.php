@@ -66,9 +66,25 @@
                                     @enderror
                                 </div>
                             </div>
+                            <div class="form-group row">
+                                <label for="celular"
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Celular') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="celular" type="celular" class="form-control @error('celular') is-invalid @enderror"
+                                        name="celular" value="{{ old('celular', ) }}" autocomplete="celular">
+
+                                    @error('celular')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+
 
                             <div class="form-group row">
-                                <label for="email" class="col-md-4 col-form-label text-md-right">Tipo usuario</label>
+                                <label for="tipo" class="col-md-4 col-form-label text-md-right">Tipo usuario</label>
 
                                 <div class="col-md-6">
                                     <select name="tipo" id="tipo" class="form-control @error('tipo') is-invalid @enderror"
@@ -175,6 +191,10 @@
                                             style="width: 55px; font-size: 10px;">
                                             Editar
                                         </a>
+                                        <a href="{{ route('deletuser', $u->id) }}" class="btn btn-sm btn-danger"
+                                            style="width: 35px; font-size: 18px;"
+                                            onclick="return confirm('Deseas eliminar el Usuario?'$u->name);"><i
+                                                class="fas fa-trash-alt"></i></a>
                                     </td>
                                 </tr>
                             @endforeach

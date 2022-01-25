@@ -1,4 +1,5 @@
 @extends('layouts.alum')
+<title>Propuestas asignadas</title>
 @section('content')
     <!-- Content Row * -->
     <div class="container-fluid">

@@ -1,5 +1,5 @@
 @extends('layouts.alum')
-
+<title>Solicitar tema</title>
 @section('content')
     <!-- Content Row  -->
     <div class="container-fluid">

@@ -1,5 +1,5 @@
 @extends('layouts.alum')
-
+<title>Mi tema</title>
 @section('content')
 
 
@@ -31,10 +31,15 @@
                                     </div>
                                     <div class="footer-post">
                                         Categoria:
-                                        <a href="#">{{ $t->propuesta->linea->name }}</a>
-                                        tutor 
+                                        {{ $t->propuesta->linea->name }}</a>
+                                        <br>
+                                        tutor: 
                                         {{ $t->propuesta->user->name }}
+                                        <br>
+                                        Contacto del tutor: 
+                                        <a href="">{{ $t->propuesta->user->celular }}
 
+                                     
                                      
 
 

@@ -164,6 +164,11 @@ return [
             
             'unique'=>'Esta propuesta ya fue asignada'
         ],
+        'celular' => [
+            
+            'min'=>'El titulo debe contener mas de 10 caracteres!!',
+            
+        ],
     ],
 
     /*
